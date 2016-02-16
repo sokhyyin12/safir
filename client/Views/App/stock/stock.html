@@ -1,0 +1,70 @@
+<template name="stock">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label for="sel1">Choose shop name:</label>
+                    <select class="form-control" id="shopname">
+                        <option>-- Choose shop --</option>
+                        {{#each listShopname}}
+                        <option value="{{name}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="sel1">Choose Barcode:</label>
+                    <select class="form-control" id="barcode">
+                        <option>-- Choose barcode --</option>
+                        {{#each listBarcode}}
+                        <option value="{{barcode}}">{{barcode}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="listStore" style="display:none">
+            <table class="table table-responsive">
+                <tr>
+                    <th>RetailStoreName</th>
+                    <th>Barcode</th>
+                    <th>QTY</th>
+                </tr>
+                {{#each getAllStock}}
+                <tr>
+                    <td>{{RetailStoreName}}</td>
+                    <td>{{Barcode}}</td>
+                    <td>{{QTY}}</td>
+                </tr>
+                {{/each}} {{#each getMore}}
+                <tr>
+                    <td>{{RetailStoreName}}</td>
+                    <td>{{Barcode}}</td>
+                    <td>{{QTY}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div class="listAllstore">
+            <table class="table table-responsive">
+                <tr>
+                    <th>RetailStoreName</th>
+                    <th>Barcode</th>
+                    <th>QTY</th>
+                </tr>
+                {{#each listsStock}}
+                <tr>
+                    <td>{{RetailStoreName}}</td>
+                    <td>{{Barcode}}</td>
+                    <td>{{QTY}}</td>
+                </tr>
+                {{/each}} {{#each loadMore}}
+                <tr>
+                    <td>{{RetailStoreName}}</td>
+                    <td>{{Barcode}}</td>
+                    <td>{{QTY}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,151 @@
+<template name="updatequizz">
+	<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">UPDATE QUIZZ</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            FORM UPDATE QUIZZ
+                             <a href="/managequizz" class="pull-right btn-primary btn-sm">Back</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                	<div class="form-group">
+                                        <label>Quizz_Name</label>
+                                        <input class="form-control" id="quizz_name"
+                                         value="{{name}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quizz_Type</label>
+                                        <select class="form-control" id="quizz_type">
+                                        	<option style="display:none">{{type}}</option>
+                                        	<option>Eye</option>
+                                        	<option>Skin</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12">
+	                                	<div class="col-lg-3">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Question</label>
+		                                            <input class="form-control" id="question">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Question</label>
+		                                            <select class="form-control" id="par_tag">
+			                                        	<option>Parent Tag</option>
+			                                        </select>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Question_Image</label>
+		                                            <input type="file" id="img_quest">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-1">
+		                                	<form role="form">
+			                                	<div class="form-group">
+		                                             <button type="submit" id="add-question" class="btn btn-primary btn-sm pull-right">add question</button>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                            </div>
+		                            <div class="col-lg-12">
+		                                <div class="col-lg-3">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Answer</label>
+		                                            <input class="form-control" id="answer">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Answer_Tag</label>
+		                                            <select class="form-control" id="tag_answer">
+			                                        	<option>Answer Tag</option>
+			                                        </select>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>Answer_Image</label>
+		                                            <input type="file" id="img_answer">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-1">
+		                                	<form role="form">
+			                                	<div class="form-group">
+		                                             <button type="submit" id="add-answer" class="btn btn-primary btn-sm pull-right">answer</button>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                        <div class="col-lg-12" style="padding:10px;background:#F2F2F2">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped tbodyquestion">
+                                	{{#each question}}
+                                		<tbody class="quess-tbody answer-list-num">
+									        <tr class="quest-list" data-question="{{question}}" data-par="{{parent_tag}}" data-quesImage="{{image}}">
+									        	<td>
+									        		<img src="/images/p1.jpg" width="40">
+									        	</td>
+									        	<td style="color:red">
+									        		* Question : 	{{question}}
+									        	</td>
+									        	<td>
+													<a href="#" class="remove_div pull-right">remove</a>
+												</td>
+									        </tr>
+									        {{#each answers}}
+									        	<tr class="answer-list" data-answer="{{value}}" data-answertag="{{tag}}" data-answerImage="{{image}}">
+									        		<td>
+										        		<img src="/images/2-bg.png" width="40">
+										        	</td>
+										            <td>*** :) Answer: {{value}}
+										            </td>
+										            <td>
+														<a href="#" class="remove pull-right">remove</a>
+													</td>
+												</tr>
+									        {{/each}}
+									    </tbody>
+                                	{{/each}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <input type="button" id="btn-save" value="Submit" class="btn btn-primary btn-md pull-right">
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+</template>
